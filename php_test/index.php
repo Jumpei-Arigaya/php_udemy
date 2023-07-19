@@ -329,3 +329,92 @@ function sumPrice($int1, $int2)
 }
 
 var_dump(sumPrice(4, 3));
+
+echo '<br>';
+
+// 文字列の長さ
+// マルチバイト 日本語UTF-8 3-6バイト
+$text = 'あいうえお';
+echo strlen($text);
+echo '<br>';
+echo mb_strlen($text);
+
+echo '<br>';
+
+// 文字列の置換
+$str = '文字列を置換します';
+echo str_replace('置換', 'ちかん', $str);
+
+echo '<br>';
+
+// 指定文字列で分割
+$str_2 = '指定文字列で、分割します';
+echo '<pre>';
+var_dump(explode('、', $str_2));
+echo '</pre>';
+
+echo '<br>';
+
+// imporove
+
+// 正規表現
+$str_3 = "特定の文字列が含まれるか確認する";
+
+echo preg_match('/文字列/', $str_3);
+
+// 指定文字列から文字列を取得する
+echo mb_substr('あいうえお', 1);
+
+// 配列に配列を追加する
+$array = ['りんご', 'みかん'];
+
+array_push($array, 'きゅうり', 'なす');
+echo '<pre>';
+var_dump($array);
+echo '<pre>';
+
+// camelCase
+$postalCode = '123-4567';
+function checkPostalCode($str)
+{
+    $replacted = str_replace('-', '', $str);
+    var_dump($replacted);
+    $length = strlen($replacted);
+
+    if ($length === 7) {
+        return true;
+    }
+    return false;
+}
+
+var_dump(checkPostalCode($postalCode));
+
+echo '<br>';
+
+// スコープ
+$globalVariable = 'グローバル変数です';
+
+function checkScope($str)
+{
+    $localVariable = 'ローカル変数です';
+    echo $str;
+}
+
+echo $globalVariable;
+
+echo '<br>';
+
+checkScope($globalVariable);
+
+echo '<br>';
+
+require __DIR__ . '/common/common.php';
+echo $commonVariavle;
+
+echo '<br>';
+
+commonTest();
+
+echo '<br>';
+
+echo __FILE__;
