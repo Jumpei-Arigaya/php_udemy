@@ -418,3 +418,16 @@ commonTest();
 echo '<br>';
 
 echo __FILE__;
+
+
+// $jj = 123;
+// echo $jj;
+
+$test = 123;
+$test_2 = 456;
+
+echo '<br>';
+echo $test;
+exit;
+echo '<br>';
+echo $test_2;
