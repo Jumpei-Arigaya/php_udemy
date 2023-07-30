@@ -10,6 +10,7 @@ class TestController extends Controller
 {
     public function index()
     {
+        dd('test');
         // Eloquant
         $values = Test::all();
 
@@ -22,7 +23,6 @@ class TestController extends Controller
 
         // クエリビルダ
         $queryBuilder = DB::table('tests')->where('text', '=', 'bbb')->select('id', 'text')->get();
-        dd($queryBuilder);
         return view('tests.test', compact('values'));
     }
 }
